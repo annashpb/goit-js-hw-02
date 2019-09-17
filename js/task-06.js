@@ -4,19 +4,18 @@ let input;
 const numbers = [];
 let total = 0;
 
-for (let i = 0; ;i += 1) {
-  input = prompt("Введите число");
-  numbers[i] = input;
+while (input !== null) {
+  input = prompt('Введите число');
   if (input === null) {
-    numbers.pop();
-    break;
+      break;
   }
-  if (Number.isNaN(parseFloat(input))) {
-    alert(`Было введено не число, попробуйте еще раз`);
-    numbers.splice(i, 1);
-    i -= 1;   
-    input = 0;
-  }  
+  else if (Number.isNaN(parseFloat(input))) {
+      alert(`Было введено не число, попробуйте еще раз`);
+      input = 0;
+  }
+  else {
+    numbers.push(input);
+  }
   total += parseFloat(input);
 }
 
